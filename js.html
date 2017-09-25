@@ -1,0 +1,114 @@
+<script>
+
+	function fun(){
+		b = 20; //window.b => 전역변수의 의미를 갖는다. 가급적이면 글로벌변수를 사용하지 않는 것이 좋다.
+		var a; //로컬은 반드시 var를 써준다.
+		alert(a);
+	}
+	
+	function power2(a){
+		for(var i=0; i<a.length; i++){
+			a[i] = a[i] * a[i];
+		}
+	}
+	
+	function f(a){
+		
+		a = 10;
+		return a;
+		
+	}
+	
+	function f2(a){
+		a.name = '홍길동';
+		a.money = 100000;
+		
+	}
+
+</script>
+
+
+<script>
+
+
+	/* var gCount = 10; //글로벌변수를 앞에 g를 붙여서 쉽게 찾을 수 있도록 해준다.
+	
+	//System.out
+	a = 10;       //window.a = 10 이라고 쓴 것과 동일하다. global
+	alert(a);
+	
+	var a = 20;   // global
+	
+	fun(a);
+	 */
+
+	
+	var arr = [10, 20, 30]; // 100 400 900
+	
+	power2(arr);
+
+	alert(arr);
+	
+	var b = 20;
+	f(b);
+	alert(b);
+	
+	var c = {};  // var c = [];  var c = {};
+	c.name = 'ckt';
+	c.age = 30;
+	c.score = [10, 20, 30];
+	c.add = function(a, b){
+		return a + b;
+	};
+	
+	class P{
+		add(a, b){
+			return a + b;
+		}
+	}
+	
+	console.log(c.add(30, 10));
+	
+	alert(c.name);
+	
+	
+	c.weight = 64.5;
+	
+	f2(c);
+	
+	console.log(c.name);
+	console.log(c.money);
+	
+	var d = {
+		name : 'ckt',
+		age : 30,
+		score : [10, 20, 30]
+	};
+	
+	
+	function Person(name, age){
+		this.name = name;
+		this.age = age;
+		this.add = function(a, b){
+			return a + b;
+		}
+		return this;
+	}
+	
+	var p = Person("이순신", 50);
+	var p2 = new Person("홍길동", 30);
+	
+	p2.add(4, 5);
+	console.log(p.name);
+	
+	
+	/* {
+		function Person(String name, int age){
+			this.name = name;
+			this.age = age;
+		}
+	}
+	
+	p = new Person("", 3);
+ */
+</script>

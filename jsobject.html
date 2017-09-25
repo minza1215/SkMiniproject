@@ -1,0 +1,25 @@
+<script>
+
+	document.write("Hello");
+	
+	var w = window.open("");
+	
+	w.document.write("Hello 2");
+	
+	for(var key in location){
+		console.log(key + ":" + location[key]);
+	}
+	
+	//location.port == location['port'];
+	
+	//location.href = "1to50.html";
+	
+	console.log(navigator.userAgent);
+	
+	function back(){
+		history.go(-1); //내가 원하는 페이지로 다시 돌아갈 수 있게 해준다.
+	}
+	
+</script>
+
+<a href

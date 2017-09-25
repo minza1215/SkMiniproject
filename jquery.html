@@ -1,0 +1,78 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+<script>
+
+	var flag = false;
+	//jquery 표현방법
+	$(document).ready(function() { //이것은 필수는 아니지만 쓴다면 무조건 맨마지막에 실행됨..
+		alert("Hello jquery"); //함수의 정의
+		
+		document.getElementById("txt").value = '';
+		txt.value = 'test!';
+		$("#txt").val('test! :)');
+		$("#msg").css("color", "red");
+		$("#msg").css("background", "yellow");
+		
+		$("div").css("color", "blue");
+		//.test는 클래스를 가리킴
+		$(".test#hello").css("color", "green");
+		
+		$("div.test").css("color", "red");
+		
+		$("#msg").hide(5000);
+		
+		//이벤트!!!
+		$("#msg").click(function() {
+			alert('hi! man');
+		});
+		
+		$("h1").click(test);
+		
+		$("#btn").click(function() {
+			//$("#msg2").toggle();
+			if(flag == false){
+				$("#msg").hide();
+				flag = true;
+			}else{
+				$("#msg").show();
+				flag = false;
+			}
+		});
+		
+		
+		$("#msg2").html("<img width=500 height = 500 src=hamster.jpg>");
+		
+		
+	});
+	
+	function test(){
+		alert('^^^^^');
+	}
+	
+	
+
+	
+	//msg.innerHTML = "ok~!";  //오류가 난다.
+</script>
+
+
+
+<div id=msg>message</div>
+<div id=msg2>message2</div>
+<div class=test>hello3</div>
+<h1 class=test>Hello4</h1>
+<h2 class=test id=hello>Hello5</h1>
+
+<button onclick="answerClick()">정답</button>
+<br>
+
+<button id=btn>나타났다~ 없어졌다~</button>
+<br>
+<input type=text id=txt>
+
+
+<!--  
+
+<div id=msg>hello</div>
+
+-->

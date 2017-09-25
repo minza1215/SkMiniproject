@@ -1,0 +1,33 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+<div>장바구니</div>
+<div class="item" sel=0>사과 100 7</div>
+<div class="item" sel=0>바나나 1000 2</div>
+<div class="item" sel=0>복숭아 2000 1</div>
+
+<button id=calBtn>계산하기</button>
+
+<script>
+
+	$("div.item").click(function() {
+		//$(this).css("color", "red");
+		//현재의 상태값을 읽어오는 것!!
+		sel = $(this).attr("sel");
+		
+		if(sel == 0){
+			$(this).attr("sel", "1");
+			$(this).css("color", "red");
+		}else{
+			$(this).attr("sel", "0");
+			$(this).css("color", "black");
+		}
+		
+	});
+	
+	$("#calBtn").click(function() {
+		
+		$("div[sel=1]").css("background", "yellow");
+		
+	});
+	
+</script>

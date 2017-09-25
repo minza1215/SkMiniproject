@@ -1,0 +1,25 @@
+<script>
+	//함수는 자바스크립트에서 적용한다. 정의부분
+	//나눠놔야 안 헷깔린다.
+	function next() {
+		//alert('클릭');
+		var imgs = ["dog.jpg", "hamster.jpg", "cow.jpg", "bear.jpg", "penguin.jpg"];
+		//myimg.src = imgs[Math.floor(Math.random()*5)];
+		
+		document.getElementById("myimg").src = imgs[Math.floor(Math.random() * imgs.length)];
+		//$('#src')
+	}
+</script>
+
+<img src=dog.jpg width=300 height=300 id=myimg>
+<br>
+
+<button onclick="next()">next</button>
+
+
+<script>
+	//호출하는 부분
+	//alert('ok!!');
+	console.log("ok!!"); //디버깅을 위하여!
+	next();	
+</script>

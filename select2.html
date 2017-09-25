@@ -1,0 +1,29 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+<div>장바구니</div>
+<div class="item" sel=0>사과    100 7</div>
+<div class="item" sel=0>바나나 1000 2</div>
+<div class="item" sel=0>복숭아 2000 1</div>
+
+
+<script>
+
+	
+
+	$(".item").each(function(i, element) {
+		var token = $(element).text().split(/\s+/);
+		var cost = token[1] * token[2];
+		if(cost >= 2000){
+			$(element).css("color", "red");
+		}
+		
+		//console.log( $(element).text().split(/\s+/) );
+		/* if(i % 2 == 0){
+			$(element).css("color", "red");	
+		} */
+		
+	});
+	
+	//var token = s.split(/\s+/);
+
+</script>

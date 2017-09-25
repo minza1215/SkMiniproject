@@ -1,0 +1,41 @@
+
+
+<script>
+
+	$(document).ready(function(){
+		$('input[data=hello]').val('Hello!'); //정매
+		$('input[data*=hello]').val('Hello2!'); //존재
+		$('input[data~=hello]').val('Hello3!'); //단어로서 존재
+	});
+	
+</script>
+
+<input type=text data="hello"/>
+<input type=text data="123hello123"/>
+<input typt=text data="123 hello 123"/>
+
+<br>
+
+<select>
+	<option>Apple</option>
+	<option>Bag</option>
+	<option>Cat</option>
+	<option>Dog</option>
+	<option>Cow</option>
+</select>
+
+<script>
+	
+	setTimeout(function(){
+		var value = $('select > option:selected').val();
+		alert(value);
+	}, 5000);
+	
+</script>
+
+
+
+<!--  $("P.sel")
+$(P[sel=1]")  -->
+
+

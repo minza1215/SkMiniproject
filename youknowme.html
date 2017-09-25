@@ -1,0 +1,92 @@
+
+<script>
+	//함수는 자바스크립트에서 적용한다. 정의부분
+	//나눠놔야 안 헷깔린다.
+	
+	var number = 0;// 현재푸는문제들의 번호
+	var idxs = [0, 1, 2, 3, 4, 5, 6];
+	var imgs = ["park.jpg", "son.jpg", "ronaldo.png", "umbape.jpg", "pogba.jpg", "nymar.jpg", "lukaku.jpg"];
+	var corrects = ["13", "7", "7", "29", "6", "11", "9"];
+	var count = 0;
+	
+	//섞는 함수..
+	function shuffle(a){
+		var j, x, i;
+		for(i=a.length; i; i--){ //i가 0이 되면 false가 된다.
+			j = Math.floor(Math.random() * i);
+			x = a[i - 1];
+			a[i -1] = a[j];
+			a[j] = x;
+		}
+	}
+	
+	function answerClick() {
+		if(answer.value == corrects[idxs[number]]){
+			console.log("correct");
+			msg.innerHTML = "맞췄습니다!"
+			count++;
+			
+			document.getElementById("myimg").src = imgs[idxs[++number]];
+		}else{
+			console.log("wrong");
+			msg.innerHTML = "틀렸습니다!"
+			
+				document.getElementById("myimg").src = imgs[idxs[number]];
+		}
+		answer.value = "";
+		answer.focus();
+		
+		
+		
+		
+		//index = Math.floor(Math.random() * imgs.length);
+		
+		 // ++을 하지않는다면 사진이 바뀌지않고 동일한 사진이 나오게 된다.
+		
+		// 이미지 끝까지 갔을 때 끝나지 않고 반복하게 하기 
+		/* if(number == imgs.length-1){
+			number = 0;
+		} */
+		//document.getElementById("question") = index;
+		
+		//$('#src')
+		//myimg.src = imgs[Math.floor(Math.random()*5)];
+		//console.log(answer.value);
+		if(number == imgs.length){
+			if(count == 7){
+				alert("Perfect!!!! 당신은 축잘알!! 당신은 멋쟁이");
+			}else if(count == 6){
+				alert("축구 좀 아네?");
+			}else{
+				alert("ㅉㅉ~");
+			}
+		} 
+		
+	}
+	
+</script>
+
+
+<h1>Soccer Player Number Bingo Game!</h1>
+
+<img src=park.jpg width=500 height=500 id=myimg>
+<br>
+<input type="text" id=answer>
+
+<!-- 정답버튼 -->
+<button onclick="answerClick()">정답</button>
+<div id=msg>message</div>
+
+<script>
+	//호출하는 부분
+	//alert('ok!!');
+	console.log("ok!!"); //디버깅을 위하여!
+	shuffle(idxs);
+	index = idxs[0]; //
+	document.getElementById("myimg").src = imgs[index];
+</script>
+
+
+
+<!-- src = a.jpg
+src = "a .jpg" -->

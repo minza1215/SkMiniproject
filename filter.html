@@ -1,0 +1,24 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+<div>장바구니</div>
+<div class="item" sel=0>사과    100 7</div>
+<div class="item" sel=0>바나나 1000 2</div>
+<div class="item" sel=0>복숭아 2000 1</div>
+
+
+<script>
+	// 더 좋은 코드
+	$("div.item").filter(function(index){
+		return index == 0;
+	}).css("color", "red").hide(3000);
+
+	//$("div.item").css("color", "red").css("background", "yellow").hide(5000);
+	
+	
+	/* $("div.item").each(function (index, obj){
+		if(index == 0 ){
+			obj.css('color', "red").hide(5000);
+		}
+	}); */
+	
+</script>

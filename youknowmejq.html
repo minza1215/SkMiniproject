@@ -1,0 +1,137 @@
+<style>
+@font-face{
+	font-family: 'GoodFont';
+	src: url('orangejuice.TTF');
+}
+
+.pre {
+	font-family:'GoodFont';
+	font-size: 30pt;
+	color: blue;
+}
+
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+
+<script>
+	//함수는 자바스크립트에서 적용한다. 정의부분
+	//나눠놔야 안 헷깔린다.
+	
+	var number = 0;// 현재푸는문제들의 번호
+	var idxs = [0, 1, 2, 3, 4, 5, 6];
+	var imgs = ["park.jpg", "son.jpg", "ronaldo.png", "umbape.jpg", "pogba.jpg", "nymar.jpg", "lukaku.jpg"];
+	var corrects = ["13", "7", "7", "29", "6", "11", "9"];
+	var count = 0;
+	var correct = 0;
+	var wrong = 0;
+	var num = 0;
+	
+	
+	//섞는 함수..
+	function shuffle(a){
+		var j, x, i;
+		for(i=a.length; i; i--){ //i가 0이 되면 false가 된다.
+			j = Math.floor(Math.random() * i);
+			x = a[i - 1];
+			a[i -1] = a[j];
+			a[j] = x;
+		}
+	}
+	
+	setInterval(function() {
+		num++;
+		$("#time").html(num);
+	}, 1000);
+	
+</script>
+
+<p id=time class=pre></p>
+<h1>Soccer Player Number Bingo Game!</h1>
+<h2>축구선수의 등번호를 맞추세요!</h2>
+
+<img src=park.jpg width=500 height=500 id=myimg>
+<p id =correct>맞춘 숫자</p>
+<p id =wrong>틀린 숫자</p>
+<br>
+<input type="text" id=answer>
+
+<!-- 정답버튼 -->
+<button id=btn>정답</button>
+<button id=reset>초기화</button>
+<div id=msg></div>
+<br>
+<p>알림판</p>
+<p>======</p>
+<div id=notice></div>
+
+<script>
+	//호출하는 부분
+	console.log("ok!!"); //디버깅을 위하여!
+	shuffle(idxs);
+	index = idxs[0]; 
+	
+	$("#myimg").attr("src", imgs[index]);
+	
+	
+	$("#btn").click(function(){
+		count++;
+		if($("#answer").val() == corrects[idxs[number]]){
+			console.log("correct");
+			$("#msg").html("맞췄습니다!");
+			$("#myimg").attr("src", imgs[idxs[++number]]);
+			
+			var all = $("#notice").html() + count + "번째 시도!! " + number +"문제를 풀었습니다. good~~!<br>";
+			correct++;
+			
+			$("#correct").html("맞춘 숫자 : " + correct).css("color", "blue");
+		}else{
+			console.log("wrong");
+			$("#msg").html("틀렸습니다!");
+			$("#myimg").attr("src", imgs[idxs[number]]);
+			
+			var all = $("#notice").html() + count + "번째 시도!! " + number +"문제를 다시 풀어보세요. ㅠㅠ<br>";
+			wrong++;
+			$("#wrong").html("틀린 숫자 : " + wrong).css("color", "red");
+		}
+		
+		$("#answer").val("");
+		$("#answer").focus();
+		
+		/* if(number == imgs.length){
+			if(count == 7){
+				alert("Perfect!!!! 당신은 축잘알!! 당신은 멋쟁이");
+			}else if(count == 6){
+				alert("축구 좀 아네?");
+			}else{
+				alert("ㅉㅉ~");
+			}
+		} */
+		
+		//var all = $("#notice").html() + count + "번째 시도!! " + number +"문제를 풀었습니다. good~~!<br>";
+		$("#notice").html(all).css("color", "blue");
+	}); 
+	
+	$("#reset").click(function() {
+		shuffle(idxs);
+		index = idxs[0]; 
+		
+		$("#myimg").attr("src", imgs[index]);
+		
+		number = 0;
+		count = 0;
+		var all = $("#notice").html() + "초기화되었습니다..<br>";
+		$("#notice").html(all).css("color", "blue");
+		
+		correct = 0;
+		wrong = 0;
+		
+		$("#correct").html("맞춘 숫자 : " + correct).css("color", "blue");
+		$("#wrong").html("틀린 숫자 : " + wrong).css("color", "red");
+	})
+	
+	
+	
+</script>
+

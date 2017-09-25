@@ -1,0 +1,107 @@
+<script>
+
+	function add(a, b){   // 선언적 함수
+		return a + b;
+	}
+	
+	function sub(a, b){
+		return a - b;
+	}
+	
+	var fun1 = sub;
+	
+	abc = function(a, b){ // 익명함수 abc는 변수일 뿐!!
+		return a + b;
+	}
+	
+	fun1 = add;
+	
+	var c = add(4, 6);
+	var d = sub(10, 4);
+	var e = abc(4, 10);
+	var f = fun1(10, 10);
+	// 자바스크립트를 함수와 변수가 동일시 된다.
+	
+	var op = 1;
+	var op1 = 10;
+	var op2 = 90;
+	
+	if(op == 1){
+		console.log(add(op1, op2));
+	}
+	if(op == 2){
+		console.log(sub(op1, op2));
+	}
+	
+	//----------------------------------
+	
+	if(op == 1){
+		v = add(op1, op2);
+	}
+	if(op == 2){
+		v = sub(op1, op2);
+	}
+	
+	console.log(v);
+	
+	//----------------------------------
+	
+	fun(op, op1, op2){
+		if(op == 1)	f = add;
+		if(op == 2)	f = sub;
+		if(op == 3) f = mul;
+		if(op == 4) f = div; //나누기 기능 추가
+		
+		return f(op1, op2);
+	}
+	
+	var a = fun(1, 10, 10);
+	var b = fun(2, 10, 10);
+	
+	f = add;
+	var c = fun(f, 0, 10);
+	
+	var c = fun(function(x,y){
+		return x * y;
+	}, 0, 10);
+	
+	function fun(f, op1, op2){
+		return f(op1, op2);
+	}
+	
+	console.log(f(op1, op2));
+	
+	f = Math.sin(180);
+	console.log(f);
+	
+	//array a = 10, 20, 75가 들어가 있을때..
+	function power(a){
+		for(i=0; i<a.length; i++){
+			a[i] = a[i] * a[i];
+		}
+	}
+	
+	function add10(a){
+		for(i=0; i<a.length; i++){
+			a[i] = a[i] + 10;
+		}
+	} 
+	
+	a = [10, 20, 30];
+	
+	power(a);
+	add10(a);
+	add2(a, 30);
+	
+	fun(a, power);
+	fun(a, add10);
+	fun(a, funtion(x) { return x * x; });
+	//fun(a, x -> x*x);
+	
+	fun(a, f){
+		for(i=0; i<a.length; i++){
+			a[i] = f(a[i]);
+		}
+	}
+	
+</script>
